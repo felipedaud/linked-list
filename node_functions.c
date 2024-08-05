@@ -53,7 +53,41 @@ void adicionarNodeFinal(Node **head)
 
 void removerNodeFinal(Node **head)
 {
-    return;
+    // condição de não existirem nodes
+    if (*head == NULL)
+    {
+        printf("Nenhum node apagado\n");
+        return;
+    }
+    
+    // iteração para encontrar o penúltimo node e excluir o útimo node
+    for (Node *node = *head; node != NULL; node = node->next)
+    {
+        // condição de só existir o primeiro node
+        if (node->next == NULL)
+        {
+            printf("Apagado node de valor %d\n", node->value);
+            
+            free(node);
+            node = NULL;
+            
+            *head = NULL;
+            return;
+        }
+
+        // condição próximos nodes na cadeia
+        Node *proximoNode = node->next;
+        if (proximoNode->next == NULL)
+        {
+            printf("Apagado node de valor %d\n", proximoNode->value);
+            
+            free(proximoNode);
+            proximoNode = NULL;
+            
+            node->next = NULL;
+            return;
+        }
+    }
 }
 
 

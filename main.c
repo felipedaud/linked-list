@@ -56,6 +56,7 @@ int menuOpcoes()
     {
         int opcao = 0;
 
+        printf("\n\n\n");
         printf("________________________________________________________________\n");
         printf("Selecione as opcoes abaixo:\n");
         printf(" 1 - Printar valores da lista\n");
