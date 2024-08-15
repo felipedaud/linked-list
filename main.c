@@ -33,14 +33,22 @@ void menuLoop()
                 break;
             
             case 2:
-                adicionarNodeFinal(&inicio_lista);
+                adicionarNodeInicio(&inicio_lista);
                 break;
             
             case 3:
-                removerNodeFinal(&inicio_lista);
+                adicionarNodeFinal(&inicio_lista);
                 break;
             
             case 4:
+                removerNodeInicio(&inicio_lista);
+                break;
+            
+            case 5:
+                removerNodeFinal(&inicio_lista);
+                break;
+            
+            case 6:
                 exit(0);
             
             default:
@@ -60,14 +68,16 @@ int menuOpcoes()
         printf("________________________________________________________________\n");
         printf("Selecione as opcoes abaixo:\n");
         printf(" 1 - Printar valores da lista\n");
-        printf(" 2 - Adicionar um valor no final da lista\n");
-        printf(" 3 - Remover um valor no final da lista\n");
-        printf(" 4 - Sair do programa\n");
+        printf(" 2 - Adicionar um valor no inicio da lista\n");
+        printf(" 3 - Adicionar um valor no final da lista\n");
+        printf(" 4 - Remover um valor no inicio da lista\n");
+        printf(" 5 - Remover um valor no final da lista\n");
+        printf(" 6 - Sair do programa\n");
 
         scanf("%d", &opcao);
         printf("\n\n\n");
 
-        if (1 <= opcao && 4 >= opcao)
+        if (1 <= opcao && 6 >= opcao)
         {
             return opcao;
         }

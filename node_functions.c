@@ -90,6 +90,36 @@ void removerNodeFinal(Node **head)
     }
 }
 
+void removerNodeInicio(Node **head)
+{
+    // condição de não existirem nodes
+    if (*head == NULL)
+    {
+        printf("Nenhum node apagado\n");
+        return;
+    }
+    
+    // condição de existir apenas um node
+    if ((*head)->next == NULL)
+    {
+        printf("Apagado node de valor %d\n", (*head)->value);
+        free(*head);
+        *head = NULL;
+        
+        return;
+    }
+
+    // condição de existirem mais de um node
+    Node *segundoNode = (*head)->next;
+
+    printf("Apagado node de valor %d\n", (*head)->value);
+    free(*head);
+    
+    *head = segundoNode;
+    
+    return;
+}
+
 
 void printarNodes(Node **head)
 {
@@ -137,4 +167,48 @@ int pegarValorInt()
             while (getchar() != '\n');
         }
     }
+}
+
+
+
+
+void adicionarNodeInicio(Node **head)
+{
+    // receber valor para inserir em node
+    int valorPassado = pegarValorInt();
+
+
+    // condição de não existirem nodes
+    if (*head == NULL)
+    {
+        Node *novoNode = malloc(sizeof(Node));
+        if (novoNode == NULL)
+        {
+            printf("Falha ao alocar memória para Node\n");
+            exit(0);
+        }
+
+        novoNode->value = valorPassado;
+        novoNode->next = NULL;
+
+        *head = novoNode;
+
+        return;
+    }
+    
+
+    // criar um node e inserir no início, na condição de existirem outros nodes
+    Node *novoNode = malloc(sizeof(Node));
+    if (novoNode == NULL)
+    {
+        printf("Falha ao alocar memória para Node\n");
+        exit(0);
+    }
+
+    novoNode->value = valorPassado;
+    novoNode->next = *head;
+
+    *head = novoNode;
+
+    return;
 }

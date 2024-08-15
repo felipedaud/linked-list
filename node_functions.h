@@ -9,8 +9,10 @@ typedef struct {
 
 
 void adicionarNodeFinal(Node **head);
+void adicionarNodeInicio(Node **head);
 
 void removerNodeFinal(Node **head);
+void removerNodeInicio(Node **head);
 
 void printarNodes(Node **head);
 
